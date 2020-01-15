@@ -6,7 +6,9 @@
 
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/table-headers.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
 
     <link rel="icon" href="//ssl.gstatic.com/ygp/ui/img/stadia_logo_128.png" sizes="128x128">
     <link rel="apple-touch-icon-precomposed" href="//ssl.gstatic.com/ygp/ui/img/stadia_logo_128.png" sizes="128x128">
@@ -18,11 +20,13 @@
     <link rel="apple-touch-icon-precomposed" href="//ssl.gstatic.com/ygp/ui/img/stadia_logo_512.png" sizes="512x512">
     <link rel="msapplication-square512x512logo" href="//ssl.gstatic.com/ygp/ui/img/stadia_logo_512.png" sizes="512x512">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
     <script type="text/javascript" class="init">
         $(document).ready(function() {
             var query = getQueryParams(document.location.search);
 
-	        var stadiaTable = $('#example').DataTable( {
+	        var stadiaTable = $('#data-table').DataTable( {
 		        "ajax": 'data/gamedb.json',
 		        "iDisplayLength": 100,
 		        "columnDefs": [
@@ -52,7 +56,34 @@
 </head>
 <body>
 
-<table id="example" class="display" style="width:100%">
+<form id="header-selection">
+  <label>
+    <input type="checkbox" id="poster" checked>
+    Poster
+  </label>
+  <label>
+    <input type="checkbox" id="name" checked>
+    Name
+  </label>
+  <label>
+    <input type="checkbox" id="genre" checked>
+    Genre
+  </label>
+  <label>
+    <input type="checkbox" id="released" checked>
+    Released
+  </label>
+  <label>
+    <input type="checkbox" id="resolution" checked>
+    Resolution
+  </label>
+  <label>
+    <input type="checkbox" id="players" checked>
+    Players
+  </label>
+</form>
+
+<table id="data-table">
     <thead>
         <tr>
             <th>Poster</th>
